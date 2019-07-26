@@ -7,14 +7,16 @@ import 'rxjs/add/operator/map';
   providedIn: 'root'
 })
 export class EmployeeService {
-  private apiURL = "http://5d398542fa091c0014470333.mockapi.io/api/employees";
+  private apiURL = "http://5d398542fa091c0014470333.mockapi.io/api/employees/";
   constructor(private _http:Http) {
 
   }
   getListEmployee():Observable<any []>{
-    return this._http.get(this.apiURL).map((response: Response) => response.json())
+    return this._http.get(this.apiURL).map((response: Response) => response.json());
   }
-  
+  getDetailEmployee(id:number):Observable<any[]>{
+    return this._http.get(this.apiURL + id).map((response: Response)=> response.json());
+  }
 }
 // viet xog service sang component.ts . su dung service = cach import provider ở trong
 // decorator employee.ts
