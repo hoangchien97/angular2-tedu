@@ -6,12 +6,14 @@ import { EmployeeComponent } from './employee/employee.component';
 import {HttpModule} from '@angular/http';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app.routes';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeComponent,
     HomeComponent,
+    NotfoundComponent,
   ],
   imports: [
     BrowserModule,

@@ -17,5 +17,4 @@ export class EmployeeComponent implements OnInit {
       this.employees = response;
     })
   }
-
 }
