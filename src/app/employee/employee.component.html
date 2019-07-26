@@ -1,0 +1,20 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Status</th>
+      <th>Create At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of employees">
+      <td scope="row">{{employee.id}}</td>
+      <td>{{employee.name}}</td>
+      <td>{{employee.age}}</td>
+      <td>{{employee.status}}</td>
+      <td>{{employee.createAt | date }}</td>
+    </tr>
+  </tbody>
+</table>
