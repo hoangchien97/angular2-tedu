@@ -8,6 +8,8 @@ import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app.routes';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
+import { EmployeeOverviewComponent } from './employee-overview/employee-overview.component';
+import { EmployeeProjectsComponent } from './employee-projects/employee-projects.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { EmployeeDetailComponent } from './employee-detail/employee-detail.compo
     HomeComponent,
     NotfoundComponent,
     EmployeeDetailComponent,
+    EmployeeOverviewComponent,
+    EmployeeProjectsComponent,
   ],
   imports: [
     BrowserModule,
