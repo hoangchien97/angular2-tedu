@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from './employee.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { error } from 'util';
 
 // decorator
 @Component({
@@ -13,6 +14,7 @@ export class EmployeeComponent implements OnInit {
   public id: number;
   public pages: number[];
   public currentPage: number;
+  public txtSearch: string;
 
   constructor(
     private employeeService: EmployeeService,
@@ -29,6 +31,16 @@ export class EmployeeComponent implements OnInit {
     this.loadData();
     this.pages = [1, 2, 3, 4, 5];
   }
+
+  loadData() {
+    this.employeeService.getListEmployee().subscribe((response: any) => {
+      this.employees = response;
+      // console.log(response);
+    }, error => {
+      console.log(error);
+    });
+  }
+
   delEmployee(id: number) {
     let confirmResult = confirm("Are you sure to delete employee ?");
     if (confirmResult == true) {
@@ -40,12 +52,13 @@ export class EmployeeComponent implements OnInit {
       })
     }
   }
-  loadData() {
-    this.employeeService.getListEmployee().subscribe((response: any) => {
+
+  Search(){
+    this.employeeService.Search(this.txtSearch).subscribe((response) => {
       this.employees = response;
-      // console.log(response);
-    }, error => {
+    },error => {
       console.log(error);
-    });
+      
+    })
   }
 }

@@ -14,17 +14,20 @@ export class EmployeeService {
   getListEmployee(): Observable<any[]> {
     return this._http.get(this.apiURL).map((response: Response) => response.json());
   }
-  getDetailEmployee(id: number): Observable<any[]> {
+  getDetailEmployee(id: number): Observable<any> {
     return this._http.get(this.apiURL + id).map((response: Response) => response.json());
   }
-  Update(id: number, data: any): Observable<any[]> {
+  Update(id: number, data: any): Observable<any> {
     return this._http.put(this.apiURL + id, data).map((response: Response) => response.json());
   }
-  Create(data: any): Observable<any[]> {
+  Create(data: any): Observable<any> {
     return this._http.post(this.apiURL, data).map((response: Response) => response.json());
   }
-  Delete(id: number): Observable<any[]> {
+  Delete(id: number): Observable<any> {
     return this._http.delete(this.apiURL + id).map((response: Response) => response.json());
+  }
+  Search(txtSearch: string): Observable<any> {
+    return this._http.get(this.apiURL + "?search=" + txtSearch).map((response: Response) => response.json());
   }
 }
 // viet xog service sang component.ts . su dung service = cach import provider ở trong
