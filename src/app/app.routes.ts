@@ -9,6 +9,9 @@ import { EmployeeProjectsComponent } from './employee-projects/employee-projects
 import { LoginComponent } from './login/login.component';
 import { CheckLoginGuard } from './guards/checkLogin/check-login.guard';
 import { CheckSaveFormGuard } from './guards/checkLogin/check-save-form.guard';
+import { EmployeeUpdateComponent } from './employee-update/employee-update.component';
+import { EmployeeCreateComponent } from './employee-create/employee-create.component';
+import { EmployeeDeleteComponent } from './employee-delete/employee-delete.component';
 
 const routes: Routes = [
     // { path: '', redirectTo:'employees', pathMatch: 'full' },
@@ -24,7 +27,11 @@ const routes: Routes = [
             {path: 'projects', component: EmployeeProjectsComponent}
         ]
     },
-    {path: 'login', component: LoginComponent},
+    { path : 'employees-create',component: EmployeeCreateComponent},
+    { path: 'employees-edit/:id',component: EmployeeUpdateComponent},
+    { path: 'employees-delete/:id', component: EmployeeDeleteComponent},
+        
+    { path: 'login', component: LoginComponent},
     { path: '**', component: NotfoundComponent },
 ];
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from './employee.service';
-import { Route, ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 // decorator
 @Component({
@@ -22,10 +22,8 @@ export class EmployeeComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe(params =>{
       this.currentPage = params['page'] || 1;
-      console.log(this.currentPage);
-      console.log(params['filter']);
-      
-      
+      // console.log(this.currentPage);
+      // console.log(params['filter']);
     })
     // trả về list danh sách
     this.employeeService.getListEmployee().subscribe((response: any) => {

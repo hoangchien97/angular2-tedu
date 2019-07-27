@@ -1,3 +1,4 @@
+<a class="btn btn-success" [routerLink]="['/employees-create']">Create new</a>
 <table class="table">
   <thead>
     <tr >
@@ -6,6 +7,7 @@
       <th>Age</th>
       <th>Status</th>
       <th>Create At</th>
+      <th rowspan="3">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -14,8 +16,12 @@
       <td>{{employee.name}}</td>
       <td>{{employee.age}}</td>
       <td>{{employee.status}}</td>
-      <td>{{employee.createAt | date }}</td>
-      <td><a [routerLink]="[ '/employees', employee.id ]">Show details</a></td>
+      <td>{{employee.createdAt | date }}</td>
+      <td>
+        <a class="btn btn-info" [routerLink]="['/employees', employee.id ]">Show details</a>
+        <a class="btn btn-primary" [routerLink]="['/employees-edit', employee.id ]">Edit</a>
+        <a class="btn btn-danger" [routerLink]="[ '/employees-delete', employee.id ]">Delete</a>
+      </td>
     </tr>
   </tbody>
 </table>
