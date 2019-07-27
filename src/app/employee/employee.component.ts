@@ -10,29 +10,42 @@ import { ActivatedRoute, Router } from '@angular/router';
   providers: [EmployeeService]
 })
 export class EmployeeComponent implements OnInit {
-  
-  public pages:number[];
-  public currentPage:number;
+  public id: number;
+  public pages: number[];
+  public currentPage: number;
 
   constructor(
     private employeeService: EmployeeService,
-    private router: Router, private activatedRoute : ActivatedRoute
-    ) { }
+    private router: Router, private activatedRoute: ActivatedRoute
+  ) { }
   public employees: any[];
   ngOnInit() {
-    this.activatedRoute.queryParams.subscribe(params =>{
+    this.activatedRoute.queryParams.subscribe(params => {
       this.currentPage = params['page'] || 1;
       // console.log(this.currentPage);
       // console.log(params['filter']);
     })
     // trả về list danh sách
+    this.loadData();
+    this.pages = [1, 2, 3, 4, 5];
+  }
+  delEmployee(id: number) {
+    let confirmResult = confirm("Are you sure to delete employee ?");
+    if (confirmResult == true) {
+      this.employeeService.Delete(id).subscribe(response => {
+        if (response) {
+          alert("Delete success");
+          this.loadData();
+        }
+      })
+    }
+  }
+  loadData() {
     this.employeeService.getListEmployee().subscribe((response: any) => {
       this.employees = response;
       // console.log(response);
-    },error => {
-        console.log(error);
-        
+    }, error => {
+      console.log(error);
     });
-    this.pages = [1,2,3,4,5];
   }
 }

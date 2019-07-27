@@ -20,7 +20,8 @@
       <td>
         <a class="btn btn-info" [routerLink]="['/employees', employee.id ]">Show details</a>
         <a class="btn btn-primary" [routerLink]="['/employees-edit', employee.id ]">Edit</a>
-        <a class="btn btn-danger" [routerLink]="[ '/employees-delete', employee.id ]">Delete</a>
+        <!-- <a class="btn btn-danger" (click)="delEmployee(employee.id)">Delete</a> -->
+        <button class="btn btn-danger" (click)="delEmployee(employee.id)">Delete</button>
       </td>
     </tr>
   </tbody>

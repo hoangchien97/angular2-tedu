@@ -16,7 +16,6 @@ import { CheckLoginGuard } from './guards/checkLogin/check-login.guard';
 import { LoginService } from './login/login.service';
 import { EmployeeCreateComponent } from './employee-create/employee-create.component';
 import { EmployeeUpdateComponent } from './employee-update/employee-update.component';
-import { EmployeeDeleteComponent } from './employee-delete/employee-delete.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +29,6 @@ import { EmployeeDeleteComponent } from './employee-delete/employee-delete.compo
     LoginComponent,
     EmployeeCreateComponent,
     EmployeeUpdateComponent,
-    EmployeeDeleteComponent,
   ],
   imports: [
     BrowserModule,
